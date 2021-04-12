@@ -9,8 +9,8 @@
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://kosmx.github.io/",
+    "sources": "https://github.com/KosmX/emotes-proxy-template"
   },
 
   "license": "CC0-1.0",
@@ -19,11 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.kosmx.example.proxy.serverImpl.ServerNetworkHandler"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
