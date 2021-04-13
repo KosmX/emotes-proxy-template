@@ -23,10 +23,17 @@ public final class ExampleNetwork {
         //We still need to register the message listener. I'll use a fabric mod at server-side to test this mod.
         //you'll probably use your own server, not using the minecraft server if you are creating a proxy.
 
-        ClientPlayNetworking.registerGlobalReceiver(channelID, (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(channelID, (client, handler, byteBuf, responseSender) -> {
             System.out.println("Received emote message");
-            byte[] bytes = buf.readByteArray(); //you can use buf.array(), it's faster but if this is a directByteBuf, it'll cause an error
-            proxy.receiveMessage(bytes);
+
+            if(byteBuf.isDirect() || byteBuf.isReadOnly()){
+                byte[] bytes = new byte[byteBuf.readableBytes()];
+                byteBuf.getBytes(byteBuf.readerIndex(), bytes);
+                proxy.receiveMessage(bytes);
+            }
+            else {
+                proxy.receiveMessage(byteBuf.array());
+            }
         });
 
     }
