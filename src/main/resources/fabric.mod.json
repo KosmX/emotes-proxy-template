@@ -18,9 +18,6 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "io.github.kosmx.example.proxy.serverImpl.ServerNetworkHandler"
-    ],
     "client": [
       "io.github.kosmx.example.proxy.ExampleModClient"
     ]

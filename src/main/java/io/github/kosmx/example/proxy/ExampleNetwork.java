@@ -1,7 +1,6 @@
 package io.github.kosmx.example.proxy;
 
 import io.github.kosmx.emotes.api.proxy.EmotesProxyManager;
-import io.github.kosmx.example.proxy.serverImpl.ServerNetworkHandler;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
@@ -24,7 +23,6 @@ public final class ExampleNetwork {
         //you'll probably use your own server, not using the minecraft server if you are creating a proxy.
 
         ClientPlayNetworking.registerGlobalReceiver(channelID, (client, handler, byteBuf, responseSender) -> {
-            System.out.println("Received emote message");
 
             if(byteBuf.isDirect() || byteBuf.isReadOnly()){
                 byte[] bytes = new byte[byteBuf.readableBytes()];
@@ -44,6 +42,5 @@ public final class ExampleNetwork {
      */
     public static void sendMessageViaYourApi(PacketByteBuf byteBuf){
         ClientPlayNetworking.send(channelID, byteBuf);
-        System.out.println("Sending emote message");
     }
 }
