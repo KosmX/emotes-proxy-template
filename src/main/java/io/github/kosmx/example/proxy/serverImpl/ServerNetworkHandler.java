@@ -21,7 +21,7 @@ public class ServerNetworkHandler implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ServerPlayNetworking.registerGlobalReceiver(ExampleNetwork.channelID, (server, sender, handler, buf, responseSender) -> {
-			System.out.println("Streaming emote: " + sender.getName());
+			System.out.println("Streaming emote: " + sender.getName().getString());
 			for(ServerPlayerEntity target : PlayerLookup.tracking(sender)){
 				ServerPlayNetworking.send(target, ExampleNetwork.channelID, buf);
 			}
