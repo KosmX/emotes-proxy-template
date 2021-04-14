@@ -45,6 +45,6 @@ To include emotesAPI in your program you can use [Gradle Shadow Plugin](https://
 
 ## License
 
-EmotesAPI is under CC-BY-4.0 License, fell free to include that in your project.
+EmotesAPI is under CC-BY-4.0 License, fell free to include that in your projects.
 
 This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
