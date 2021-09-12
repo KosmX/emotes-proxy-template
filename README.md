@@ -11,7 +11,7 @@ repositories {
     (...)
     maven{
         name = 'KosmX\'s repo'
-        url = 'http://kosmx.ddns.net/maven' //I'll probably change it
+        url = 'https://kosmx.duckdns.org/maven'
     }
 }
 
